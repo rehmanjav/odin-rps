@@ -26,3 +26,14 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function game(rounds) {
+    console.log("Lets play a game of Rock Paper Scissors!")
+    for (let i = 1; i <= rounds; i++) {
+        console.log(`Round: ${i}`);
+        let playerSelection = prompt("Please enter your play.", "");
+        console.log(playRound(playerSelection, computerPlay()));
+    }
+}
+
+game(5);
+
