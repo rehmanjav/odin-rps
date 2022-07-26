@@ -1,3 +1,3 @@
-# odin-rps-console
+# odin-rps
 
-Rock paper scissors game played in the console.
+Rock paper scissors game using HTML, CSS, and JS.
