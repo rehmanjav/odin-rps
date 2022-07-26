@@ -30,32 +30,44 @@ function game(playerSelection) {
     let result = playRound(playerSelection, computerPlay());
     
 
-    
-
-    // if (result[4] == 'w') {
-    //     wins += 1;
-    // } else if (result[4] == 'l') {
-    //     losses += 1;
-    // } else if (result[4] == 's') {
-    //     ties += 1;
-    // }
-
     // Update dialog
     let dialog = document.querySelector(".dialog");
     dialog.textContent = "Please make another selection to play another round.";
     
 
     // Update round
-    console.log('round ' + round);
-    let round = document.querySelector(".round");
+    
+    let roundSpan = document.querySelector(".round");
+    let round = roundSpan.textContent;
+    round = +round + 1;
+    roundSpan.textContent = round;
 
     // Update score
-    console.log(`wins:${wins} losses:${losses} ties:${ties}`);
-    let score = document.querySelector(".score");
 
+    if (result[4] == 'w') {
+        let winsSpan = document.querySelector(".wins");
+        let wins = winsSpan.textContent;
+        wins = +wins + 1;
+        winsSpan.textContent = wins;
+    } else if (result[4] == 'l') {
+        let lossesSpan = document.querySelector(".losses");
+        let losses = lossesSpan.textContent;
+        losses = +losses + 1;
+        lossesSpan.textContent = losses;
+    } else if (result[4] == 's') {
+        let tiesSpan = document.querySelector(".ties");
+        let ties = tiesSpan.textContent;
+        ties = +ties + 1;
+        tiesSpan.textContent = ties;
+    }
+    
     // Update result
     let resultSpan = document.querySelector(".result");
     resultSpan.textContent = result;
+
+    // Show main
+    let main = document.querySelector(".main");
+    main.classList.remove("invisible");
     
 }
 
