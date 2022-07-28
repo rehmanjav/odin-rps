@@ -49,6 +49,9 @@ function game(playerSelection) {
         let wins = winsSpan.textContent;
         wins = +wins + 1;
         winsSpan.textContent = wins;
+        if (wins == 5) {
+            endGame();
+        }
     } else if (result[4] == 'l') {
         let lossesSpan = document.querySelector(".losses");
         let losses = lossesSpan.textContent;
@@ -67,8 +70,22 @@ function game(playerSelection) {
 
     // Show main
     let main = document.querySelector(".main");
-    main.classList.remove("invisible");
-    
+    main.classList.remove("invisible");    
+}
+
+function endGame() {
+    let dialog = document.querySelector(".dialog");
+    dialog.textContent = "YOU WIN!!!!! Click RESTART GAME to play again.";
+
+    buttons.forEach(button => button.classList.add("invisible"));
+
+    let refreshBtn = document.createElement('button');
+    refreshBtn.textContent = 'RESTART GAME';
+    let body = document.querySelector('body');
+    body.appendChild(refreshBtn);
+    refreshBtn.addEventListener('click', () => {
+        window.location.reload();
+    })
 }
 
 // PROGRAM BEGINS
@@ -78,6 +95,3 @@ let buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('click', (e) => {
     game(e.target.classList[0]);
 }));
-
-
-
